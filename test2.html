@@ -5,14 +5,69 @@
 	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 <body>
-	<script>
-		var data = {a : 1}
 
-		var vm = new Vue({
-			data : data
+	<!-- <div id="app">
+		<p>{{ foo }}</p>
+		<button v-on:click = 'foo = "baz"'>click here</button>
+		<span v-once>{{ message }}</span>
+	</div> -->
+
+	<p id="app1">Using mustaches: {{ rawHtml }}</p>
+	<p id="app2">Using v-html directive: <span v-html="rawHtml"></span></p>
+
+	<script>
+
+		var vm1 = new Vue({
+			el:'#app1',
+			data:{
+				rawHtml:'<span style="color: red">This should be red.</span>'
+			}
 		})
 
-		console.log(vm.a == data.a)
+		var vm2 = new Vue({
+			el:'#app2',
+			data:{
+				rawHtml:'<span style="color: red">This should be red.</span>'
+			}
+		})
+
+		// var data = {a : 1}
+
+		// var vm = new Vue({
+		// 	el:'#app',
+		// 	data : data
+		// })
+
+		// console.log(vm.a == data.a)
+		// console.log(vm.$data === data)
+		// console.log(vm.$el === document.getElementById('app'))
+
+		// var obj = {
+		// 	foo:'bar'
+		// }
+
+		// // Object.freeze(obj)
+
+		// new Vue({
+		// 	el : '#app',
+		// 	data:obj
+		// })
+
+		// new Vue({
+		// 	data:{
+		// 		a : '我刚被创建'
+		// 	},
+		// 	created:function(){
+		// 		console.log(this.a)
+		// 	}
+		// })
+		// var vm = new Vue({
+		// 	el:'#app',
+		// 	data:{
+		// 		message : 'test1'
+		// 	}
+		// })
+
 	</script>
 </body>
 </html>
